@@ -1,0 +1,15 @@
+{
+  "plugins": [
+    "react"
+  ],
+  "ecmaFeatures": {
+    "jsx": true,
+    "es6": true
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "strict": 0,
+    "arrow-body-style": [2, "always"]
+  },
+  "extends" : 'airbnb'
+}

@@ -1,0 +1,30 @@
+{
+  "showName": "Wayback Wednesday",
+  "showDescription": "Bobby plays music from some year",
+  "episodeName": "1999",
+  "episodeDescription": "something",
+  "timestamp": "something",
+  "length" 60,
+  "tracklist": [
+    {
+      "artist" : "Queen",
+      "song" : "Somebody to Love"
+    },
+    {
+      "artist" : "Queen",
+      "song" : "We Will Rock You"
+    },
+    {
+      "artist" : "Queen",
+      "song" : "We Are the Champions"
+    },
+    {
+      "artist" : "Queen",
+      "song" : "Bohemian Rhapsody"
+    },
+    {
+      "artist" : "Queen",
+      "song" : "Seven Seas of Rye"
+    }
+  ]
+}
