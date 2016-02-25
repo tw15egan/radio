@@ -1,10 +1,20 @@
-const path = require('path');
-const express = require('express');
-const webpack = require('webpack');
-const config = require('./webpack.config.dev');
+import 'babel-polyfill';
+import webpack from 'webpack';
+import config from './webpack.config';
+import express from 'express';
+import bodyParser from 'body-parser';
+import routes from './routes';
 
 const app = express();
 const compiler = webpack(config);
+
+// Express middleware
+
+// Body parser adds the {body} object to the
+// request object - req.body
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
@@ -13,15 +23,13 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
-});
+routes(app);
 
+// Spin up the server itself
 app.listen(3000, 'localhost', err => {
   if (err) {
     console.log(err);
-    return;
+  } else {
+    console.log('Listening at http://localhost:3000');
   }
-
-  console.log('Listening at http://localhost:3000');
 });

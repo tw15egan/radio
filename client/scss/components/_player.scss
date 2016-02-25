@@ -1,0 +1,32 @@
+.player {
+  display: flex;
+  background-color: #333;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+
+  &__title {
+    color: #fff;
+  }
+
+  &__gif {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    animation: spin 15s linear infinite;
+  }
+}
+
+.track {
+
+  &__gif {
+  }
+}
+
+@keyframes spin{
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -6,6 +6,11 @@
     "jsx": true,
     "es6": true
   },
+  "env" : {
+    "node": true,
+    "browser": true,
+    "es6": true
+  },
   "parser": "babel-eslint",
   "rules": {
     "strict": 0,

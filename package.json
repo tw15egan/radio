@@ -2,14 +2,15 @@
   "name": "radio",
   "version": "1.0.0",
   "description": "IBM Community Radio",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
-    "dev": "webpack-dev-server --content-base build/ --hot --inline",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon ./bin/www",
+    "start": "node ./bin/www"
   },
-  "author": "",
+  "author": "Chris Dhanaraj <adhanaraj@gmail.com>",
   "license": "ISC",
   "devDependencies": {
+    "axios": "0.9.1",
     "babel-core": "^6.4.5",
     "babel-eslint": "^4.1.6",
     "babel-loader": "^6.2.1",
@@ -17,21 +18,40 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-1": "^6.3.13",
+    "css-loader": "0.23.1",
     "eslint": "^1.10.3",
     "eslint-config-airbnb": "^4.0.0",
     "eslint-plugin-react": "^3.15.0",
+    "eventsource-polyfill": "0.9.6",
+    "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.7.1",
     "npm-install-webpack-plugin": "^2.0.2",
     "react-transform-hmr": "^1.0.1",
-    "webpack": "^1.12.12"
+    "redux-devtools": "^3.1.0",
+    "redux-devtools-dock-monitor": "^1.0.1",
+    "redux-devtools-log-monitor": "^1.0.3",
+    "sass-loader": "3.1.2",
+    "style-loader": "0.13.0",
+    "webpack": "^1.12.12",
+    "webpack-dev-middleware": "^1.5.1",
+    "webpack-hot-middleware": "^2.6.4"
   },
   "dependencies": {
+    "babel-polyfill": "^6.5.0",
+    "babel-register": "^6.5.2",
+    "body-parser": "^1.15.0",
+    "cookie-parser": "^1.4.1",
+    "express": "^4.13.4",
     "isomorphic-fetch": "^2.2.1",
-    "react": "^0.14.6",
-    "react-dom": "^0.14.6",
-    "react-redux": "^4.0.6",
-    "react-router": "^1.0.3",
-    "redux": "^3.0.5",
-    "redux-simple-router": "^2.0.4"
+    "mongoose": "^4.4.3",
+    "node-sass": "^3.4.2",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-redux": "^4.2.1",
+    "react-router": "2.0.0",
+    "react-router-redux": "^4.0.0-rc.1",
+    "redux": "^3.2.1",
+    "redux-logger": "^2.4.0",
+    "redux-thunk": "^1.0.3"
   }
 }

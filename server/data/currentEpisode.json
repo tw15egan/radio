@@ -4,27 +4,39 @@
   "episodeName": "1999",
   "episodeDescription": "something",
   "timestamp": "something",
-  "length" 60,
+  "length": 60,
+  "currentSong": {
+    "artist": "Queen",
+    "song": "Somebody to Love"
+  },
   "tracklist": [
     {
-      "artist" : "Queen",
-      "song" : "Somebody to Love"
+      "artist": "Queen",
+      "song": "Somebody to Love"
     },
     {
-      "artist" : "Queen",
-      "song" : "We Will Rock You"
+      "artist": "Queen",
+      "song": "We Will Rock You"
     },
     {
-      "artist" : "Queen",
-      "song" : "We Are the Champions"
+      "artist": "Queen",
+      "song": "We Are the Champions"
     },
     {
-      "artist" : "Queen",
-      "song" : "Bohemian Rhapsody"
+      "artist": "Queen",
+      "song": "Bohemian Rhapsody"
     },
     {
-      "artist" : "Queen",
-      "song" : "Seven Seas of Rye"
+      "artist": "Queen",
+      "song": "Seven Seas of Rye"
+    },
+    {
+      "artist": "Queen",
+      "song": "Flash"
+    },
+    {
+      "artist": "Queen",
+      "song": "Who Wants to Live Forever"
     }
   ]
 }

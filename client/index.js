@@ -1,12 +1,13 @@
-import 'babel-core/polyfill';
+// import 'babel-core/polyfill';
 import React from 'react';
 import { render } from 'react-dom';
-// import { createStore } from 'redux';
-// import { Provider } from 'react-redux';
-import App from './containers/App';
+import { browserHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
+import Root from './containers/Root';
+import configureStore from './store/configureStore';
 
-// because I don't feel like making an index.html file
-document.body.innerHTML = '<div id="radio"></div>';
+const store = configureStore();
+const history = syncHistoryWithStore(browserHistory, store);
+
 const radio = document.getElementById('radio');
-
-render(<App />, radio);
+render(<Root store={store} history={history} />, radio);
