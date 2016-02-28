@@ -1,11 +1,9 @@
 # IBM Community Radio
 
-
+An unofficial development project by for IBM Community Radio. Built with Mongo,
+Node, Express, and React/Redux.
 
 # Contributors
 
-An unofficial development project by
-
 - Chris Dhanaraj (@chrisdhanraj)
-- Taylor Jones (@taylor)
 - Raquel (@quell)
