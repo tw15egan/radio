@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { fetchCurrentShowIfNeeded, invalidateCurrentShow } from '../actions';
 import { Link } from 'react-router';
 import Player from '../components/Player';
 import '../scss/_app.scss';
@@ -10,10 +11,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('/api/sample/currentShow')
-      .then(data => {
-        console.log(data);
-      });
+    const { dispatch } = this.props;
+
+    dispatch(fetchCurrentShowIfNeeded());
   }
 
   render() {
@@ -38,4 +38,15 @@ App.propTypes = {
   children: PropTypes.node,
 };
 
-export default App;
+// const mapStateToProps = (state) => {
+//   const {
+//     currentShow: {
+//       isFetching,
+//       lastUpdated,
+//     }
+//     isFetching,
+//     lastUp
+//   }
+// };
+
+export default connect()(App);
