@@ -9,6 +9,7 @@ export default function configureStore(initialState) {
     rootReducer,
     initialState,
     compose(
+      applyMiddleware(thunk),
       applyMiddleware(createLogger()),
       DevTools.instrument()
     )
