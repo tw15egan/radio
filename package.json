@@ -10,7 +10,6 @@
   "author": "Chris Dhanaraj <adhanaraj@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "axios": "0.9.1",
     "babel-core": "^6.4.5",
     "babel-eslint": "^4.1.6",
     "babel-loader": "^6.2.1",
@@ -40,9 +39,13 @@
     "babel-polyfill": "^6.5.0",
     "babel-register": "^6.5.2",
     "body-parser": "^1.15.0",
+    "connect-mongo": "^1.1.0",
     "cookie-parser": "^1.4.1",
     "express": "^4.13.4",
+    "express-session": "^1.13.0",
     "isomorphic-fetch": "^2.2.1",
+    "jsonwebtoken": "^5.7.0",
+    "jwt-decode": "^1.5.1",
     "lodash.merge": "^4.3.1",
     "mongoose": "^4.4.3",
     "node-sass": "^3.4.2",
@@ -53,6 +56,8 @@
     "react-router-redux": "^4.0.0-rc.1",
     "redux": "^3.2.1",
     "redux-logger": "^2.4.0",
-    "redux-thunk": "^1.0.3"
+    "redux-thunk": "^1.0.3",
+    "socket.io": "^1.4.5",
+    "socket.io-client": "^1.4.5"
   }
 }
