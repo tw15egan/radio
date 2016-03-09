@@ -15,37 +15,29 @@ const userReducer = (state = {
   }
 };
 
-const currentShowReducer = (state = {
-  currentShow: {
-    isFetching: false,
-    didInvalidate: false,
-    items: [],
-  },
+const currentShow = (state = {
+  isFetching: false,
+  didInvalidate: false,
+  items: [],
 }, action) => {
   switch (action.type) {
     case INVALIDATE_CURRENT_SHOW: {
       return merge({}, state, {
-        currentShow: {
-          didInvalidate: true,
-        },
+        didInvalidate: true,
       });
     }
     case REQUEST_CURRENT_SHOW: {
       return merge({}, state, {
-        currentShow: {
-          isFetching: true,
-          didInvalidate: false,
-        },
+        isFetching: true,
+        didInvalidate: false,
       });
     }
     case RECEIVE_CURRENT_SHOW: {
       return merge({}, state, {
-        currentShow: {
-          isFetching: false,
-          didInvalidate: false,
-          items: action.currentShow,
-          lastUpdated: action.receivedAt,
-        },
+        isFetching: false,
+        didInvalidate: false,
+        items: action.data,
+        lastUpdated: action.receivedAt,
       });
     }
     default:
@@ -54,7 +46,7 @@ const currentShowReducer = (state = {
 };
 
 const rootReducer = combineReducers({
-  currentShowReducer,
+  currentShow,
   routing,
 });
 
