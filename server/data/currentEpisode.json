@@ -1,40 +1,50 @@
 {
   "showName": "Wayback Wednesday",
+  "owners": ["Bobby"],
   "showDescription": "Bobby plays music from some year",
+  "showGif": "http://i.imgur.com/WMGE9RL.gif",
   "episodeName": "1999",
   "episodeDescription": "something",
   "timestamp": "something",
   "length": 60,
   "currentSong": {
+    "_id": 1,
     "artist": "Queen",
     "song": "Somebody to Love"
   },
   "tracklist": [
     {
+      "_id": 1,
       "artist": "Queen",
       "song": "Somebody to Love"
     },
     {
+      "_id": 2,
       "artist": "Queen",
       "song": "We Will Rock You"
     },
     {
+      "_id": 3,
       "artist": "Queen",
       "song": "We Are the Champions"
     },
     {
+      "_id": 4,
       "artist": "Queen",
       "song": "Bohemian Rhapsody"
     },
     {
+      "_id": 5,
       "artist": "Queen",
       "song": "Seven Seas of Rye"
     },
     {
+      "_id": 6,
       "artist": "Queen",
       "song": "Flash"
     },
     {
+      "_id": 7,
       "artist": "Queen",
       "song": "Who Wants to Live Forever"
     }

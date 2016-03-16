@@ -1,0 +1,33 @@
+.profile-navbar {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin-left: -2em;
+  margin-top: -1em;
+
+  &__item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #111;
+    border: 1px solid #333;
+    border-bottom: 0;
+
+    &:last-child {
+      border-bottom: 2px solid #333;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  p {
+    border-bottom: 2px solid #fff;
+    color: #fff;
+    padding-bottom: 1px;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+}

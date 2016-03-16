@@ -16,6 +16,7 @@ const EpisodeSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Track',
   }],
+  gifList: Array,
 });
 
 const Episode = mongoose.model('Episode', EpisodeSchema);

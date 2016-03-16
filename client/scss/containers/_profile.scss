@@ -1,0 +1,19 @@
+.profile {
+  display: flex;
+  height: 100vh;
+
+  &__sidebar {
+    flex: 1;
+    height: 100vh;
+    max-width: 150px;
+  }
+
+  &__main {
+    flex: 3;
+    padding: 1em 1em 0;
+  }
+}
+
+.rdtPicker {
+  color: #111;
+}

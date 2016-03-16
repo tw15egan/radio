@@ -4,9 +4,7 @@ export default (app) => {
   // app.use('/api/shows', require('./api/shows'));
   // app.use('/api/episodes', require('./api/episodes'));
   // app.use('/api/tracks', require('./api/tracks'));
-  // app.use('/api/users', require('./api/users'));
-
-  // app.use('/auth', require('./auth'));
+  app.use('/api/user', require('./api/user'));
 
   app.use('/api/sample', require('./api/sample'));
 

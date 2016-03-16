@@ -1,11 +1,37 @@
 // Components
 
+
+
 html {
   font-size: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 body {
   font-size: 16px;
 }
 
-@import 'components/player.scss';
+@import 'vendor/reset';
+@import 'vendor/components/variables';
+@import 'vendor/components/form';
+@import 'vendor/components/buttons';
+
+@import 'global/variables';
+@import 'global/mixin';
+@import 'global/typography';
+@import 'global/shared';
+
+@import 'components/main';
+@import 'components/player';
+@import 'components/navbar';
+@import 'components/profile-navbar';
+@import 'components/tracklist';
+
+@import 'containers/home';
+@import 'containers/profile';

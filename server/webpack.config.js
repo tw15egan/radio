@@ -4,7 +4,7 @@ const NpmInstallPlugin = require('npm-install-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'source-map',
   entry: [
     'webpack-hot-middleware/client',
     './client/index.js',
@@ -15,11 +15,6 @@ module.exports = {
     publicPath: '/static/',
   },
   plugins: [
-    new NpmInstallPlugin({
-      save: true,
-      saveDev: true,
-      saveExact: true,
-    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
   ],
@@ -28,6 +23,10 @@ module.exports = {
       {
         test: /\.scss$/,
         loaders: ['style', 'css', 'sass'],
+      },
+      {
+        test: /\.css$/,
+        loaders: ['style', 'css'],
       },
       {
         test: /\.js$/,

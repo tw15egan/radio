@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch';
-import { checkHttpStatus, parseJSON } from '../utils';
+import { parseJSON } from '../utils';
 import { browserHistory } from 'react-router';
 import jwtDecode from 'jwt-decode';
 
@@ -28,6 +28,7 @@ export function receiveCurrentShow(json) {
 }
 
 export function fetchCurrentShow() {
+
   return dispatch => {
     dispatch(requestCurrentShow());
     return fetch('/api/sample/currentShow')
@@ -41,9 +42,9 @@ export function fetchCurrentShow() {
 }
 
 function shouldFetchCurrentShow(state) {
-  const show = state.show;
+  const show = state.currentShow;
 
-  if (!show) {
+  if (!show.items.showName) {
     return true;
   }
 
@@ -59,8 +60,62 @@ export function fetchCurrentShowIfNeeded() {
     if (shouldFetchCurrentShow(getState())) {
       return dispatch(fetchCurrentShow());
     }
+  };
+}
 
-    return Promise.resolve();
+export const ADD_SHOW = 'ADD_SHOW';
+export const SUBMITTING_SHOW = 'SUBMITTING_SHOW';
+export function addShow(showDetails) {
+  return dispatch => {
+    return fetch('/api/show/add', {
+      method: 'post',
+      body: new FormData(showDetails),
+    });
+  };
+}
+
+export const CREATE_USER_REQUEST = 'CREATE_USER_REQUEST';
+export const CREATE_USER_SUCCESS = 'CREATE_USER_SUCCESS';
+export const CREATE_USER_FAILURE = 'CREATE_USER_FAILURE';
+
+export function createUserRequest() {
+  return {
+    type: CREATE_USER_REQUEST,
+  };
+}
+
+export function createUserSuccess(json) {
+  return {
+    type: CREATE_USER_SUCCESS,
+    message: json,
+  };
+}
+
+export function createUser(email, password) {
+  return dispatch => {
+    dispatch(createUserRequest());
+
+    return fetch('/api/user/create', {
+      method: 'post',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    })
+    .then(json => {
+      dispatch(createUserSuccess(json));
+      browserHistory.push('/profile');
+    });
+  };
+}
+
+export function postCreateUser(email, password) {
+  return (dispatch, getState) => {
+    return dispatch(createUser(email, password));
   };
 }
 
@@ -70,6 +125,12 @@ export const LOGIN_USER_FAILURE = 'LOGIN_USER_FAILURE';
 export const LOGOUT_USER = 'LOGOUT_USER';
 export const FETCH_PROTECTED_DATA_REQUEST = 'FETCH_PROTECTED_DATA_REQUEST';
 export const RECEIVE_PROTECTED_DATA = 'RECEIVE_PROTECTED_DATA'
+
+export function loginUserRequest() {
+  return {
+    type: LOGIN_USER_REQUEST,
+  };
+}
 
 export function loginUserSuccess(token) {
   localStorage.setItem('token', token);
@@ -92,11 +153,7 @@ export function loginUserFailure(error) {
   };
 }
 
-export function loginUserRequest() {
-  return {
-    type: LOGIN_USER_REQUEST,
-  };
-}
+
 
 export function logout() {
   localStorage.removeItem('token');
@@ -115,7 +172,7 @@ export function logoutAndRedirect() {
 export function loginUser(email, password, redirect = '/') {
   return (dispatch) => {
     dispatch(loginUserRequest());
-    return fetch('/auth/getToken/', {
+    return fetch('/api/user/auth/', {
       method: 'post',
       credentials: 'include',
       headers: {
@@ -127,13 +184,11 @@ export function loginUser(email, password, redirect = '/') {
         password,
       }),
     })
-    .then(checkHttpStatus)
     .then(parseJSON)
     .then(response => {
       try {
-        let decoded = jwtDecode(response.token);
         dispatch(loginUserSuccess(response.token));
-        dispatch(browserHistory.push(redirect));
+        browserHistory.push(redirect);
       } catch (e) {
         dispatch(loginUserFailure({
           response: {

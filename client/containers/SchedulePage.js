@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 
 class SchedulePage extends Component {
   render() {
+    const scheduleData = {}
+
     return (
-      <div>
-        <p>I'm in the schedule</p>
+      <div className="schedule">
       </div>
     );
   }

@@ -1,0 +1,43 @@
+.tracklist {
+  padding-top: 2em;
+  padding-bottom: 2em;
+
+  &__track {
+    font-size: 20px;
+    padding: 0.25em 0;
+  }
+}
+
+
+
+.track {
+  border-bottom: 1px solid #222;
+  color: #f8f8f8;
+  display: flex;
+  align-items: center;
+  padding: 1em 0;
+
+  &--active {
+    background-color: #141414;
+  }
+
+  &.track-header {
+    color: #555;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+
+  &__status {
+    display: flex;
+    justify-content: center;
+    width: 50px;
+  }
+
+  &__song {
+    flex: 1;
+  }
+
+  &__artist {
+    flex: 1;
+  }
+}
